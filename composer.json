@@ -1,0 +1,24 @@
+{
+  "name": "unsparing/emerchantpay-php-sdk",
+  "type": "library",
+  "description": "EMERCHANTPAY PHP SDK",
+  "keywords": [
+    "unsparing"
+  ],
+  "homepage": "https://www.emerchantpay.com",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "unsparing",
+      "email": "support@emerchantpay.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.2"
+  },
+  "autoload": {
+    "files": [
+      "WSSDK/autoload.php"
+    ]
+  }
+}
