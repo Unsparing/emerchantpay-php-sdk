@@ -117,7 +117,7 @@ abstract class BaseRequest {
 	 * @throws RequestValidationException
 	 * @return BaseResponse
 	 */
-	public function send($DEBUG = false) {
+	public function send($enableSsl = true, $DEBUG = false) {
 
 		if (!is_string($this->endpoint)){
 			throw new RequestValidationException(get_class($this) . ': Endpoint strings is required');
@@ -153,8 +153,9 @@ abstract class BaseRequest {
 		curl_setopt($ch, CURLOPT_HTTPHEADER,array("Expect:"));
 		curl_setopt($ch, CURLOPT_HEADER, true);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, $enableSsl);
 
-		$server_output = curl_exec ($ch);
+        $server_output = curl_exec ($ch);
 
 		if ($DEBUG){
 			var_dump("SERVER_RESPONSE:");
